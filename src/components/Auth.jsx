@@ -189,17 +189,18 @@ const Login = ({ onLogin, storedHash, onGoToSetup, onRestore }) => {
 
     const handlePinComplete = async (pin) => {
         setLoading(true);
+        setError('');
 
-        // Simulate slight delay for security/UX
-        setTimeout(() => {
-            const hash = hashMasterPassword(pin);
-            if (hash === storedHash) {
-                onLogin(pin);
-            } else {
-                setError('Incorrect PIN.');
-                setLoading(false);
-            }
-        }, 500);
+        // Use a micro-task delay to ensure UI transitions smoothly
+        await new Promise(resolve => setTimeout(resolve, 50));
+
+        const hash = hashMasterPassword(pin);
+        if (hash === storedHash) {
+            onLogin(pin);
+        } else {
+            setError('Incorrect PIN.');
+            setLoading(false);
+        }
     };
 
     return (

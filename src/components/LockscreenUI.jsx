@@ -15,13 +15,18 @@ const LockscreenUI = ({ onComplete, onErrorClear, isError, title, subtitle }) =>
     const handleNumberClick = (num) => {
         if (pin.length < 6) {
             triggerVibration();
-            const newPin = pin + num;
-            setPin(newPin);
-            if (newPin.length === 6) {
-                onComplete(newPin);
-            }
+            setPin(prev => prev + num);
         }
     };
+
+    useEffect(() => {
+        if (pin.length === 6) {
+            const timer = setTimeout(() => {
+                onComplete(pin);
+            }, 200);
+            return () => clearTimeout(timer);
+        }
+    }, [pin, onComplete]);
 
     const handleDelete = () => {
         triggerVibration();
