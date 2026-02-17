@@ -1,0 +1,32 @@
+{
+    "short_name": "SecureVault",
+    "name": "Secure Account & Password Manager",
+    "icons": [
+        {
+            "src": "icon.svg",
+            "type": "image/svg+xml",
+            "sizes": "192x192",
+            "purpose": "any"
+        },
+        {
+            "src": "icon.svg",
+            "type": "image/svg+xml",
+            "sizes": "512x512",
+            "purpose": "any"
+        },
+        {
+            "src": "icon.svg",
+            "type": "image/svg+xml",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        }
+    ],
+    "id": "/",
+    "start_url": "/",
+    "background_color": "#0f172a",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#0f172a",
+    "description": "Securely manage your accounts and passwords with high-end encryption.",
+    "orientation": "portrait"
+}
